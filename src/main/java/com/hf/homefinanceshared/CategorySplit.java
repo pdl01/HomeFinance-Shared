@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CategorySplit {
     protected String category;
     protected double txnAmount; 
+    protected String message;
 
     public String getCategory() {
         return category;
@@ -33,6 +34,14 @@ public class CategorySplit {
 
     public void setTxnAmount(double txnAmount) {
         this.txnAmount = txnAmount;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
 }
