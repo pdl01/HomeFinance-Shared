@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author phillip.dorrell
  */
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.PROPERTY)    
 public class RegisterTransaction implements Comparable<RegisterTransaction>{
     
     protected String id;
@@ -20,7 +20,7 @@ public class RegisterTransaction implements Comparable<RegisterTransaction>{
     protected Date lastModifiedDate;
     
     protected boolean credit; //is a credit transaction to primary account
-    protected String txnDate;
+    protected String txnDate;  //in the form YYYY-MM-DD  2014-02-12 or 2014-02-01
     protected double txnAmount;
     
     protected String txnType;
@@ -37,7 +37,8 @@ public class RegisterTransaction implements Comparable<RegisterTransaction>{
     protected String flagComment;
     
     protected String payee;
-
+    protected String statusTxt; //c=cleared,v=voided,i=imported
+    
     public String getPayee() {
         return payee;
     }
@@ -180,6 +181,14 @@ public class RegisterTransaction implements Comparable<RegisterTransaction>{
 
     public void setCategorySplits(CategorySplit[] categorySplits) {
         this.categorySplits = categorySplits;
+    }
+
+    public String getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(String statusTxt) {
+        this.statusTxt = statusTxt;
     }
     
     
