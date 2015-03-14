@@ -12,33 +12,37 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author phillip.dorrell
  */
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PROPERTY)    
-public class RegisterTransaction implements Comparable<RegisterTransaction>{
-    
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class RegisterTransaction implements Comparable<RegisterTransaction> {
+
+    public final static String STATUS_VOID = "v";
+    public final static String STATUS_CLEARED = "c";
+    public final static String STATUS_NONE = "x";
+
     protected String id;
     protected Date createdDate;
     protected Date lastModifiedDate;
-    
+
     protected boolean credit; //is a credit transaction to primary account
     protected String txnDate;  //in the form YYYY-MM-DD  2014-02-12 or 2014-02-01
     protected double txnAmount;
-    
+
     protected String txnType;
     protected String txnPersonalRefNumber;
     protected String txnExternalRefNumber;
-    
+
     protected String category; //TODO splits
     protected CategorySplit[] categorySplits;
     protected String primaryAccount;
     protected String secondaryAccount;
-    
+
     protected String memo;
     protected boolean flagged;
     protected String flagComment;
-    
+
     protected String payee;
     protected String statusTxt; //c=cleared,v=voided,i=imported
-    
+
     public String getPayee() {
         return payee;
     }
@@ -166,10 +170,11 @@ public class RegisterTransaction implements Comparable<RegisterTransaction>{
     public void setFlagComment(String flagComment) {
         this.flagComment = flagComment;
     }
-    
+
     private String buildKey() {
-        return this.id +":" + this.txnDate + ":"+this.payee+":"+this.txnAmount;
+        return this.id + ":" + this.txnDate + ":" + this.payee + ":" + this.txnAmount;
     }
+
     @Override
     public int compareTo(RegisterTransaction o) {
         return this.buildKey().compareTo(o.buildKey());
@@ -192,4 +197,12 @@ public class RegisterTransaction implements Comparable<RegisterTransaction>{
     }
     
     
+    public boolean isVoid() {
+        return (this.statusTxt != null && this.statusTxt.equalsIgnoreCase(STATUS_VOID));
+    }
+
+    
+    public void setVoid(boolean isVoid) {
+        
+    }
 }
