@@ -1,10 +1,8 @@
 package com.hf.homefinanceshared;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -13,11 +11,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class RegisterTransaction implements Comparable<RegisterTransaction> {
+public class RegisterTransaction implements Comparable<RegisterTransaction>,Cloneable {
 
     public final static String STATUS_VOID = "v";
     public final static String STATUS_CLEARED = "c";
     public final static String STATUS_NONE = "x";
+    public final static String STATUS_ACCEPTED = "a";
+    public final static String STATUS_DISMISSED = "d";
+    public final static String STATUS_IMPORTED = "i";
 
     protected String id;
     protected Date createdDate;
@@ -205,4 +206,10 @@ public class RegisterTransaction implements Comparable<RegisterTransaction> {
     public void setVoid(boolean isVoid) {
         
     }
+
+    @Override
+    public RegisterTransaction clone() throws CloneNotSupportedException {
+        return (RegisterTransaction)super.clone(); 
+    }
+    
 }
