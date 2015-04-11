@@ -19,7 +19,25 @@ public class CategorySplit {
     protected String category;
     protected double txnAmount; 
     protected String message;
+    protected boolean transfer;
+    protected String transferTxn;
 
+    public boolean isTransfer() {
+        return transfer;
+    }
+
+    public void setTransfer(boolean transfer) {
+        this.transfer = transfer;
+    }
+
+    public String getTransferTxn() {
+        return transferTxn;
+    }
+
+    public void setTransferTxn(String transferTxn) {
+        this.transferTxn = transferTxn;
+    }
+    
     public String getCategory() {
         return category;
     }
