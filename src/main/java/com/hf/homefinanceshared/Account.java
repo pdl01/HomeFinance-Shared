@@ -36,6 +36,9 @@ public class Account implements Comparable<Account>{
     protected Date balanceLastCalculatedDate;
     protected String accountType;
     protected String webAddress;
+    
+    protected Date lastImportActionDate;
+    protected String lastImportedTransactionDate;  //String for display
 
     public String getWebAddress() {
         return webAddress;
@@ -144,6 +147,22 @@ public class Account implements Comparable<Account>{
     @Override
     public int compareTo(Account o) {
         return this.name.compareTo(o.getName());                
+    }
+
+    public Date getLastImportActionDate() {
+        return lastImportActionDate;
+    }
+
+    public void setLastImportActionDate(Date lastImportActionDate) {
+        this.lastImportActionDate = lastImportActionDate;
+    }
+
+    public String getLastImportedTransactionDate() {
+        return lastImportedTransactionDate;
+    }
+
+    public void setLastImportedTransactionDate(String lastImportedTransactionDate) {
+        this.lastImportedTransactionDate = lastImportedTransactionDate;
     }
     
 }
