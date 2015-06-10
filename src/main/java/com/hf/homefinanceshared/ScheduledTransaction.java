@@ -1,10 +1,16 @@
 package com.hf.homefinanceshared;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author pldorrell
  */
-public class ScheduledTransaction extends RegisterTransaction {
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class ScheduledTransaction extends RegisterTransaction implements Cloneable{
 
     public final static int FREQUENCY_WEEKLY = 1;
     public final static int FREQUENCY_MONTHLY = 2;
@@ -13,15 +19,92 @@ public class ScheduledTransaction extends RegisterTransaction {
     public final static int FREQUENCY_CUSTOM = 5;
     public final static int FREQUENCY_ONE_TIME = 0;
     
-    public int frequency;
-    public String dayOfRecurence;
-    public int numberOfOccurrences;
+    protected int frequency;
+    protected String dayOfRecurrence;
+    protected int numberOfOccurrences;
     
-    public String endDate;
-    public String beginDate;
+    protected String endDate;
+    protected String beginDate;
     
-    public String scheduledDate;
+    protected String scheduledDate;
     
-    public String originalTransactionId;
+    protected int occurenceNumber;
+    
+    protected String originalTransactionId;
+    protected boolean original;
 
+    public boolean isOriginal() {
+        return original;
+    }
+
+    public void setOriginal(boolean original) {
+        this.original = original;
+    }
+    
+    public int getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(int frequency) {
+        this.frequency = frequency;
+    }
+
+    public String getDayOfRecurrence() {
+        return dayOfRecurrence;
+    }
+
+    public void setDayOfRecurrence(String dayOfRecurrence) {
+        this.dayOfRecurrence = dayOfRecurrence;
+    }
+
+    public int getNumberOfOccurrences() {
+        return numberOfOccurrences;
+    }
+
+    public void setNumberOfOccurrences(int numberOfOccurrences) {
+        this.numberOfOccurrences = numberOfOccurrences;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getBeginDate() {
+        return beginDate;
+    }
+
+    public void setBeginDate(String beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public String getScheduledDate() {
+        return scheduledDate;
+    }
+
+    public void setScheduledDate(String scheduledDate) {
+        this.scheduledDate = scheduledDate;
+    }
+
+    public int getOccurenceNumber() {
+        return occurenceNumber;
+    }
+
+    public void setOccurenceNumber(int occurenceNumber) {
+        this.occurenceNumber = occurenceNumber;
+    }
+
+    public String getOriginalTransactionId() {
+        return originalTransactionId;
+    }
+
+    public void setOriginalTransactionId(String originalTransactionId) {
+        this.originalTransactionId = originalTransactionId;
+    }
+
+    
+    
 }

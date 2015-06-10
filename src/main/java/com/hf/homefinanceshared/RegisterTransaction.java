@@ -29,7 +29,7 @@ public class RegisterTransaction implements Comparable<RegisterTransaction>,Clon
     protected double txnAmount;
 
     protected String txnType;
-    protected String txnPersonalRefNumber;
+    protected String txnPersonalRefNumber;   //check number
     protected String txnExternalRefNumber;
 
     protected String category; //TODO splits
