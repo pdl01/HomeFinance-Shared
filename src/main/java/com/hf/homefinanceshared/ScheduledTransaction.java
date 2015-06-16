@@ -19,6 +19,10 @@ public class ScheduledTransaction extends RegisterTransaction implements Cloneab
     public final static int FREQUENCY_CUSTOM = 5;
     public final static int FREQUENCY_ONE_TIME = 0;
     
+    public final static String STATUS_SKIPPED = "k";
+    public final static String STATUS_PAID = "p";
+
+    
     protected int frequency;
     protected String dayOfRecurrence;
     protected int numberOfOccurrences;
