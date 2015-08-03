@@ -22,7 +22,10 @@ public class DailyBalance {
     protected String dailyBalanceDate;
     protected double amount;
     protected Date dateCalculated;
-
+    
+    protected double actualAmount;
+    protected double scheduledAmount;
+    
     public String getId() {
         return id;
     }
